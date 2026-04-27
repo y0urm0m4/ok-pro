@@ -22,20 +22,19 @@ export function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative aspect-[3/4] max-w-sm mx-auto lg:mx-0 rounded-2xl overflow-hidden"
+            className="relative w-full max-w-sm mx-auto lg:mx-0 rounded-2xl overflow-hidden shadow-lg"
           >
             <Image
               src="/images/olesya.jpg"
               alt="Олеся Константинова — основатель OK Pro"
-              fill
-              className="object-cover object-top"
-              sizes="(max-width: 1024px) 100vw, 50vw"
+              width={480}
+              height={640}
+              className="w-full h-auto object-cover object-top"
+              sizes="(max-width: 1024px) 90vw, 480px"
             />
-            <div className="absolute inset-0 flex items-end p-6 bg-gradient-to-t from-black/60 to-transparent">
-              <div className="bg-surface/90 backdrop-blur-sm rounded-xl px-4 py-3">
-                <p className="font-display text-lg font-semibold text-text">Олеся Константинова</p>
-                <p className="text-sm text-text-muted">Основатель OK Pro</p>
-              </div>
+            <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/70 via-black/30 to-transparent">
+              <p className="font-display text-lg font-semibold text-white">Олеся Константинова</p>
+              <p className="text-sm text-white/70">Основатель OK Pro</p>
             </div>
           </motion.div>
 
