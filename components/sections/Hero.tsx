@@ -52,7 +52,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: loaded ? 1 : 0, y: loaded ? 0 : 16 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="text-sm uppercase tracking-widest text-accent font-sans mb-6"
+            className="text-sm uppercase tracking-widest text-white font-sans mb-6"
           >
             Продюсерский центр
           </motion.p>
@@ -64,7 +64,7 @@ export function Hero() {
           >
             <Heading level={1} className="text-white mb-6 drop-shadow-lg">
               Личный бренд,{" "}
-              <em className="font-display not-italic text-accent">
+              <em className="font-display not-italic text-white">
                 который замечают
               </em>
             </Heading>
