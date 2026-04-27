@@ -66,9 +66,38 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: `${SITE_NAME} — Продюсерский центр Олеси Константиновой`,
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: `${SITE_NAME} — Продюсерский центр Олеси Константиновой`,
+    template: `%s — ${SITE_NAME}`,
+  },
   description: SITE_DESCRIPTION,
   keywords: ["личный бренд", "продюсерский центр", "марафон преображения", "видеопродакшн", "PR"],
+  authors: [{ name: "Олеся Константинова", url: SITE_URL }],
+  creator: "OK Pro",
+  openGraph: {
+    type: "website",
+    locale: "ru_RU",
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    title: `${SITE_NAME} — Продюсерский центр Олеси Константиновой`,
+    description: SITE_DESCRIPTION,
+    images: [{ url: "/images/olesya.jpg", width: 480, height: 640, alt: "OK Pro" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${SITE_NAME} — Продюсерский центр Олеси Константиновой`,
+    description: SITE_DESCRIPTION,
+    images: ["/images/olesya.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
+  },
+  alternates: {
+    canonical: SITE_URL,
+  },
 };
 
 export default function RootLayout({
