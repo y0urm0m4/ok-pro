@@ -42,13 +42,13 @@
 - [x] `sitemap.ts`, `robots.ts`
 - [x] Базовые meta-теги
 - [x] Schema.org разметка (Organization, Person, Service)
-- [ ] Адаптивность 360 / 768 / 1024 / 1440
+- [x] Адаптивность 360 / 768 / 1024 / 1440
 
 **Качество:**
 - [ ] Lighthouse mobile: Performance ≥ 80, остальные ≥ 90
 - [ ] Ручной QA на iPhone Safari, Android Chrome, Desktop Chrome
-- [ ] Типы strict, без `any`
-- [ ] ESLint без ошибок
+- [x] Типы strict, без `any`
+- [x] ESLint без ошибок
 
 **Деплой:**
 - [x] Технический поддомен на Vercel (ok-pro.vercel.app)
