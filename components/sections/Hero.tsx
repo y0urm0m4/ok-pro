@@ -13,7 +13,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center pt-16 overflow-hidden bg-white"
+      className="relative min-h-screen flex items-center pt-16 overflow-hidden bg-[#1a1412]"
     >
       {/* Фоновое фото с zoom-out эффектом */}
       <motion.div
@@ -27,7 +27,7 @@ export function Hero() {
           alt="OK Pro — фон"
           fill
           priority
-          className="object-cover object-center scale-105 blur-sm"
+          className="object-cover object-center scale-110 blur-md"
           sizes="100vw"
           onLoad={() => setLoaded(true)}
         />
@@ -40,7 +40,7 @@ export function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6 }}
-            className="absolute inset-0 z-10 bg-white/20"
+            className="absolute inset-0 z-10 bg-gradient-to-t from-black/80 via-black/40 to-black/60"
           />
         )}
       </AnimatePresence>
