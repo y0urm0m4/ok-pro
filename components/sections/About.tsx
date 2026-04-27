@@ -1,0 +1,82 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { Container } from "@/components/ui/Container";
+import { Heading } from "@/components/ui/Heading";
+
+const stats = [
+  { value: "100+", label: "запущенных брендов" },
+  { value: "5 лет", label: "на рынке" },
+  { value: "50+", label: "публикаций в СМИ" },
+];
+
+export function About() {
+  return (
+    <section id="about" className="py-24 md:py-32 bg-surface">
+      <Container>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          {/* Фото-заглушка */}
+          <motion.div
+            initial={{ opacity: 0, x: -24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative aspect-[3/4] max-w-sm mx-auto lg:mx-0 bg-accent-soft rounded-2xl overflow-hidden"
+          >
+            {/* TODO: заменить на реальное фото <Image src="/images/olesya.jpg" ... /> */}
+            <div className="absolute inset-0 flex items-end p-6">
+              <div className="bg-surface/90 backdrop-blur-sm rounded-xl px-4 py-3">
+                <p className="font-display text-lg font-semibold text-text">Олеся Константинова</p>
+                <p className="text-sm text-text-muted">Основатель OK Pro</p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Текст */}
+          <motion.div
+            initial={{ opacity: 0, x: 24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            <p className="text-sm uppercase tracking-widest text-accent font-sans mb-4">
+              О бренде
+            </p>
+            <Heading level={2} className="text-text mb-6">
+              Олеся Константинова
+            </Heading>
+            <div className="space-y-4 text-text-muted leading-relaxed mb-10">
+              <p>
+                Я строю личные бренды и помогаю людям увидеть себя по-новому.
+                За плечами — годы в продюсировании, работа с экспертами и
+                медийными личностями, публикации в ведущих изданиях.
+              </p>
+              <p>
+                OK Pro объединяет всё, что нужно для запуска и роста: стратегию,
+                медиа, преображение, продакшн. Каждый проект — это команда
+                специалистов, собранная под конкретную задачу.
+              </p>
+              <p>
+                {/* TODO: заменить на реальную биографию от заказчика */}
+                Мы не делаем универсальных решений — мы делаем ваш бренд
+                таким, каким он должен быть именно для вас.
+              </p>
+            </div>
+
+            {/* Цифры */}
+            <div className="grid grid-cols-3 gap-6 pt-8 border-t border-border">
+              {stats.map((stat) => (
+                <div key={stat.label}>
+                  <p className="font-display text-3xl md:text-4xl font-semibold text-accent mb-1">
+                    {stat.value}
+                  </p>
+                  <p className="text-sm text-text-muted">{stat.label}</p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </Container>
+    </section>
+  );
+}
