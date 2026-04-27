@@ -27,7 +27,7 @@ export function Hero() {
           alt="OK Pro — фон"
           fill
           priority
-          className="object-cover object-center"
+          className="object-cover object-center scale-105 blur-sm"
           sizes="100vw"
           onLoad={() => setLoaded(true)}
         />
