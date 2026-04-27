@@ -16,8 +16,14 @@
 }
 
 @layer base {
+  html {
+    overflow-x: hidden;
+  }
+
   body {
     @apply bg-bg text-text font-sans;
+    overflow-x: hidden;
+    width: 100%;
   }
 
   * {
