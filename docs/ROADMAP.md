@@ -31,7 +31,7 @@
 - [x] Форма заявки с валидацией (react-hook-form + zod)
 - [x] API-роут `/api/lead` — отправка уведомлений в Telegram
 - [x] Honeypot + базовый rate-limit
-- [ ] Страница `/privacy` с типовым текстом политики
+- [x] Страница `/privacy` с типовым текстом политики
 - [x] Чекбокс согласия на обработку ПД в форме
 
 **Технические задачи:**
@@ -39,9 +39,9 @@
 - [x] Настройка дизайн-токенов в `tailwind.config.ts` и `globals.css`
 - [x] Подключение шрифтов через `next/font`
 - [x] Базовые UI-компоненты (Button, Container, Heading, Input и т.д.)
-- [ ] `sitemap.ts`, `robots.ts`
+- [x] `sitemap.ts`, `robots.ts`
 - [x] Базовые meta-теги
-- [ ] Schema.org разметка (Organization, Person, Service)
+- [x] Schema.org разметка (Organization, Person, Service)
 - [ ] Адаптивность 360 / 768 / 1024 / 1440
 
 **Качество:**
