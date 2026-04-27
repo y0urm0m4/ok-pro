@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { Heading } from "@/components/ui/Heading";
 
@@ -21,10 +22,16 @@ export function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative aspect-[3/4] max-w-sm mx-auto lg:mx-0 bg-accent-soft rounded-2xl overflow-hidden"
+            className="relative aspect-[3/4] max-w-sm mx-auto lg:mx-0 rounded-2xl overflow-hidden"
           >
-            {/* TODO: заменить на реальное фото <Image src="/images/olesya.jpg" ... /> */}
-            <div className="absolute inset-0 flex items-end p-6">
+            <Image
+              src="/images/olesya.jpg"
+              alt="Олеся Константинова — основатель OK Pro"
+              fill
+              className="object-cover object-top"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
+            <div className="absolute inset-0 flex items-end p-6 bg-gradient-to-t from-black/60 to-transparent">
               <div className="bg-surface/90 backdrop-blur-sm rounded-xl px-4 py-3">
                 <p className="font-display text-lg font-semibold text-text">Олеся Константинова</p>
                 <p className="text-sm text-text-muted">Основатель OK Pro</p>
