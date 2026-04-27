@@ -40,7 +40,7 @@ export function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6 }}
-            className="absolute inset-0 z-10 bg-gradient-to-t from-black/80 via-black/50 to-black/30"
+            className="absolute inset-0 z-10 bg-gradient-to-t from-black/80 via-black/40 to-black/60"
           />
         )}
       </AnimatePresence>
