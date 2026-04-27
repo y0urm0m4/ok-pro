@@ -21,18 +21,18 @@
 **Блоки:**
 - [x] Hero
 - [x] About (О бренде)
-- [ ] Services (обзор 5 направлений)
-- [ ] Marathon (флагман, развёрнуто)
-- [ ] HowItWorks (4 шага)
-- [ ] ContactCta (финальный блок + форма)
+- [x] Services (обзор 5 направлений)
+- [x] Marathon (флагман, развёрнуто)
+- [x] HowItWorks (4 шага)
+- [x] ContactCta (финальный блок + форма)
 - [x] Header + Footer
 
 **Функционал:**
-- [ ] Форма заявки с валидацией (react-hook-form + zod)
-- [ ] API-роут `/api/lead` — отправка email
-- [ ] Honeypot + базовый rate-limit
+- [x] Форма заявки с валидацией (react-hook-form + zod)
+- [x] API-роут `/api/lead` — отправка уведомлений в Telegram
+- [x] Honeypot + базовый rate-limit
 - [ ] Страница `/privacy` с типовым текстом политики
-- [ ] Чекбокс согласия на обработку ПД в форме
+- [x] Чекбокс согласия на обработку ПД в форме
 
 **Технические задачи:**
 - [x] Настройка Next.js 14 + Tailwind + TypeScript
