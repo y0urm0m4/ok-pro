@@ -40,7 +40,7 @@ export function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6 }}
-            className="absolute inset-0 z-10 bg-gradient-to-t from-white/80 via-white/40 to-white/60"
+            className="absolute inset-0 z-10 bg-white/20"
           />
         )}
       </AnimatePresence>
@@ -52,7 +52,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: loaded ? 1 : 0, y: loaded ? 0 : 16 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="text-sm uppercase tracking-widest text-accent font-sans mb-6 drop-shadow-sm"
+            className="text-sm uppercase tracking-widest text-accent font-sans mb-6"
           >
             Продюсерский центр
           </motion.p>
@@ -62,7 +62,7 @@ export function Hero() {
             animate={{ opacity: loaded ? 1 : 0, y: loaded ? 0 : 24 }}
             transition={{ duration: 0.6, delay: 0.5 }}
           >
-            <Heading level={1} className="text-text mb-6 drop-shadow-sm">
+            <Heading level={1} className="text-white mb-6 drop-shadow-lg">
               Личный бренд,{" "}
               <em className="font-display not-italic text-accent">
                 который замечают
@@ -74,7 +74,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: loaded ? 1 : 0, y: loaded ? 0 : 24 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="text-lg md:text-xl text-text/80 leading-relaxed mb-10 max-w-xl drop-shadow-sm"
+            className="text-lg md:text-xl text-white/90 leading-relaxed mb-10 max-w-xl drop-shadow"
           >
             Помогаем экспертам, предпринимателям и медийным личностям становиться
             узнаваемыми. PR, продакшн, преображение — комплексно и без размытых
@@ -94,7 +94,7 @@ export function Hero() {
               href="#marathon"
               variant="secondary"
               size="lg"
-              className="border-text/30 text-text hover:bg-text/10 hover:border-text"
+              className="border-white/40 text-white hover:bg-white/10 hover:border-white"
             >
               Узнать о марафоне
             </Button>
