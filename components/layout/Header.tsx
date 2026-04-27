@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
+import { cn } from "@/lib/cn";
 
 const navLinks = [
   { href: "#about", label: "О бренде" },
@@ -15,11 +16,33 @@ const navLinks = [
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const isTransparent = !scrolled && !open;
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-bg/90 backdrop-blur-sm border-b border-border">
+    <header
+      className={cn(
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        isTransparent
+          ? "bg-transparent border-b border-white/10"
+          : "bg-bg/95 backdrop-blur-sm border-b border-border shadow-sm"
+      )}
+    >
       <Container className="flex items-center justify-between h-16">
-        <Link href="/" className="font-display text-xl font-semibold tracking-wide text-text">
+        <Link
+          href="/"
+          className={cn(
+            "font-display text-xl font-semibold tracking-wide transition-colors duration-300",
+            isTransparent ? "text-white" : "text-text"
+          )}
+        >
           OK Pro
         </Link>
 
@@ -28,7 +51,10 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm text-text-muted hover:text-accent transition-colors duration-200"
+              className={cn(
+                "text-sm transition-colors duration-200 hover:text-accent",
+                isTransparent ? "text-white/80" : "text-text-muted"
+              )}
             >
               {link.label}
             </Link>
@@ -42,7 +68,10 @@ export function Header() {
         </div>
 
         <button
-          className="md:hidden p-2 text-text"
+          className={cn(
+            "md:hidden p-2 transition-colors duration-300",
+            isTransparent ? "text-white" : "text-text"
+          )}
           aria-label="Открыть меню"
           onClick={() => setOpen(!open)}
         >
