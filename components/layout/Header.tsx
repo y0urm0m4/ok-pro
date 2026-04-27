@@ -80,13 +80,13 @@ export function Header() {
       </Container>
 
       {open && (
-        <div className="md:hidden bg-bg border-t border-border">
+        <div className="md:hidden bg-black/60 backdrop-blur-md border-t border-white/10">
           <Container className="py-4 flex flex-col gap-4">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-base text-text-muted hover:text-accent transition-colors duration-200"
+                className="text-base text-white/80 hover:text-accent transition-colors duration-200"
                 onClick={() => setOpen(false)}
               >
                 {link.label}
