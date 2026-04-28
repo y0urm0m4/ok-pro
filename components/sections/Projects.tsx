@@ -12,7 +12,6 @@ const projects = [
     category: "Шоу · Продюсирование",
     result: "Авторское интервью-шоу: от идеи до выхода в эфир. 500 000 просмотров в первый месяц",
     image: "/images/olesya_okupgrade.jpg",
-    gradient: "to top right",
   },
   {
     num: "02",
@@ -20,7 +19,6 @@ const projects = [
     category: "Личный бренд · PR",
     result: "Стратегия, медиа, визуал — выход в топовые издания за 3 месяца",
     image: "/images/olesya_okupgrade.jpg",
-    gradient: "to top left",
   },
   {
     num: "03",
@@ -28,7 +26,6 @@ const projects = [
     category: "Beauty · Трансформация · Продакшн",
     result: "Флагманский проект полного преображения: образ, позиционирование, съёмка. Продано 1 200 мест, средний чек ×3",
     image: "/images/olesya_okupgrade.jpg",
-    gradient: "to top right",
   },
 ];
 
@@ -54,7 +51,6 @@ export function Projects() {
           </Heading>
         </motion.div>
 
-        {/* Сетка: 2 сверху + 1 большой снизу на десктопе */}
         <div className="flex flex-col gap-4">
           {/* Верхние два */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -62,7 +58,6 @@ export function Projects() {
               <ProjectCard key={p.num} project={p} index={i} />
             ))}
           </div>
-
           {/* Нижний большой */}
           <ProjectCard project={projects[2]} index={2} large />
         </div>
@@ -86,9 +81,11 @@ function ProjectCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.55, delay: index * 0.1 }}
-      className={`relative overflow-hidden rounded-2xl border border-white/10 group ${large ? "h-[420px] md:h-[500px]" : "h-[340px] md:h-[380px]"}`}
+      className={`relative overflow-hidden rounded-2xl border border-white/10 group ${
+        large ? "h-[420px] md:h-[500px]" : "h-[340px] md:h-[380px]"
+      }`}
     >
-      {/* Фото */}
+      {/* Фото — на весь блок */}
       <Image
         src={project.image}
         alt={project.name}
@@ -97,32 +94,31 @@ function ProjectCard({
         sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 640px"
       />
 
-      {/* Стеклянный слой поверх всего фото */}
-      <div className="absolute inset-0 bg-black/20 backdrop-blur-[1px] group-hover:bg-black/10 transition-colors duration-500" />
-
-      {/* Градиент из угла — снизу слева 100% → верхний правый 0% */}
+      {/* Градиент: из нижнего левого угла (непрозрачный) → правый верх (прозрачный) */}
       <div
         className="absolute inset-0"
         style={{
-          background: `linear-gradient(${project.gradient}, transparent 45%, rgba(0,0,0,0.92) 100%)`,
+          background:
+            "linear-gradient(to top right, rgba(15,10,9,1) 0%, rgba(15,10,9,0.85) 30%, rgba(15,10,9,0.3) 60%, transparent 100%)",
         }}
       />
 
-      {/* Контент — прижат к низу */}
-      <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 z-10">
-        {/* Стеклянная плашка */}
-        <div className="bg-white/10 backdrop-blur-md border border-white/15 rounded-xl p-5 md:p-6">
-          <p className="text-xs uppercase tracking-widest text-white/50 mb-2">
-            <span className="text-accent mr-2">{project.num}</span>
-            {project.category}
-          </p>
-          <h3 className={`font-display font-semibold text-white leading-tight mb-3 ${large ? "text-3xl md:text-4xl" : "text-2xl md:text-3xl"}`}>
-            {project.name}
-          </h3>
-          <p className="text-white/65 text-sm leading-relaxed">
-            {project.result}
-          </p>
-        </div>
+      {/* Текст — нижний левый угол */}
+      <div className="absolute bottom-0 left-0 p-6 md:p-8 z-10 max-w-[70%]">
+        <p className="text-xs uppercase tracking-widest text-white/45 mb-2">
+          <span className="text-accent mr-2">{project.num}</span>
+          {project.category}
+        </p>
+        <h3
+          className={`font-display font-semibold text-white leading-tight mb-3 ${
+            large ? "text-3xl md:text-4xl" : "text-2xl md:text-3xl"
+          }`}
+        >
+          {project.name}
+        </h3>
+        <p className="text-white/60 text-sm leading-relaxed">
+          {project.result}
+        </p>
       </div>
     </motion.div>
   );
