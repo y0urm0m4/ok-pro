@@ -4,6 +4,7 @@ import "./globals.css";
 import { SITE_NAME, SITE_DESCRIPTION, SITE_URL } from "@/lib/constants";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { DiscountPopup } from "@/components/ui/DiscountPopup";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -117,6 +118,7 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
         <Footer />
+        <DiscountPopup />
       </body>
     </html>
   );
