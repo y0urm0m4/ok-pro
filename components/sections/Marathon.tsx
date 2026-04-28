@@ -13,6 +13,7 @@ const included = [
   "Психолог — ежедневные сессии поддержки",
   "Процедуры в партнёрских клиниках (при необходимости)",
   "Финальная фотосессия",
+  "Возможность участия в реалити-шоу «ОК Апгрейд»",
 ];
 
 export function Marathon() {
@@ -77,21 +78,29 @@ export function Marathon() {
               Что входит
             </p>
             <ul className="space-y-4">
-              {included.map((item, i) => (
-                <motion.li
-                  key={i}
-                  initial={{ opacity: 0, x: 12 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: 0.2 + i * 0.07 }}
-                  className="flex items-start gap-3"
-                >
-                  <span className="mt-1 flex-shrink-0 w-5 h-5 rounded-full border border-accent flex items-center justify-center">
-                    <span className="w-2 h-2 rounded-full bg-accent" />
-                  </span>
-                  <span className="text-surface/80 leading-snug">{item}</span>
-                </motion.li>
-              ))}
+              {included.map((item, i) => {
+                const isSpecial = i === included.length - 1;
+                return (
+                  <motion.li
+                    key={i}
+                    initial={{ opacity: 0, x: 12 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: 0.2 + i * 0.07 }}
+                    className={`flex items-start gap-3 ${isSpecial ? "mt-6 pt-6 border-t border-accent/20" : ""}`}
+                  >
+                    <span className={`mt-1 flex-shrink-0 w-5 h-5 rounded-full border flex items-center justify-center ${isSpecial ? "border-accent bg-accent/20" : "border-accent"}`}>
+                      <span className="w-2 h-2 rounded-full bg-accent" />
+                    </span>
+                    <span className={`leading-snug ${isSpecial ? "text-accent font-medium" : "text-surface/80"}`}>
+                      {item}
+                      {isSpecial && (
+                        <span className="ml-2 text-xs uppercase tracking-widest text-accent/60 font-sans">★ эксклюзив</span>
+                      )}
+                    </span>
+                  </motion.li>
+                );
+              })}
             </ul>
 
             <div className="mt-8 pt-6 border-t border-surface/10">
