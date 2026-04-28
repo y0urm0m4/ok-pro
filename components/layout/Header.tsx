@@ -12,6 +12,7 @@ const navLinks = [
   { href: "#services", label: "Услуги" },
   { href: "#marathon", label: "Марафон" },
   { href: "#how", label: "Как работаем" },
+  { href: "#faq", label: "FAQ" },
 ];
 
 export function Header() {
