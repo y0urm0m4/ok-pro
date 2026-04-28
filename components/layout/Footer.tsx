@@ -15,7 +15,9 @@ export function Footer() {
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <div>
-            <p className="font-display text-xl font-semibold mb-2">OK Pro</p>
+            <p className="font-display text-xl font-semibold mb-2">
+              Ок Про <span className="font-sans text-xs font-normal tracking-widest uppercase opacity-50">Продакшн</span>
+            </p>
             <p className="text-sm text-surface/60">
               Продюсерский центр Олеси Константиновой
             </p>
