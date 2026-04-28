@@ -7,8 +7,8 @@ import { Heading } from "@/components/ui/Heading";
 
 const stats = [
   { value: "100+", label: "запущенных брендов" },
-  { value: "5 лет", label: "на рынке" },
-  { value: "50+", label: "публикаций в СМИ" },
+  { value: "10 лет", label: "на рынке" },
+  { value: "5000+", label: "публикаций в СМИ" },
 ];
 
 export function About() {
