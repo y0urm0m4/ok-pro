@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { Heading } from "@/components/ui/Heading";
@@ -37,6 +37,7 @@ const testimonials = [
 export function Testimonials() {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(1);
+  const touchStartX = useRef<number | null>(null);
 
   const go = (idx: number) => {
     setDirection(idx > current ? 1 : -1);
@@ -45,6 +46,19 @@ export function Testimonials() {
 
   const prev = () => go(current === 0 ? testimonials.length - 1 : current - 1);
   const next = () => go(current === testimonials.length - 1 ? 0 : current + 1);
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const delta = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(delta) > 40) {
+      if (delta > 0) next(); else prev();
+    }
+    touchStartX.current = null;
+  };
 
   return (
     <section id="testimonials" className="py-24 md:py-32 bg-surface overflow-hidden">
@@ -59,8 +73,11 @@ export function Testimonials() {
         </div>
 
         <div className="relative max-w-3xl mx-auto">
-          {/* Карточка */}
-          <div className="relative min-h-[260px] flex items-center">
+          <div
+            className="relative min-h-[260px] flex items-center cursor-grab active:cursor-grabbing"
+            onTouchStart={onTouchStart}
+            onTouchEnd={onTouchEnd}
+          >
             <AnimatePresence mode="wait" custom={direction}>
               <motion.div
                 key={current}
@@ -71,7 +88,6 @@ export function Testimonials() {
                 transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
                 className="w-full bg-bg rounded-2xl p-8 md:p-10 border border-border"
               >
-                {/* Кавычка */}
                 <span className="font-display text-6xl text-accent/20 leading-none select-none">&ldquo;</span>
                 <p className="text-text leading-relaxed text-lg md:text-xl -mt-4 mb-8">
                   {testimonials[current].text}
@@ -89,7 +105,6 @@ export function Testimonials() {
             </AnimatePresence>
           </div>
 
-          {/* Навигация */}
           <div className="flex items-center justify-between mt-8">
             <button
               onClick={prev}
@@ -99,7 +114,6 @@ export function Testimonials() {
               ←
             </button>
 
-            {/* Точки */}
             <div className="flex gap-2">
               {testimonials.map((_, i) => (
                 <button
