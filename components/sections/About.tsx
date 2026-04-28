@@ -34,7 +34,7 @@ export function About() {
             />
             <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/70 via-black/30 to-transparent">
               <p className="font-display text-lg font-semibold text-white">Олеся Константинова</p>
-              <p className="text-sm text-white/70">Основатель OK Pro</p>
+              <p className="text-sm text-white/70">Основатель Ок Про Продакшн</p>
             </div>
           </motion.div>
 
