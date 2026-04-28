@@ -23,7 +23,7 @@ export function Hero() {
         className="absolute inset-0 z-0"
       >
         <Image
-          src="/images/moscow-russia-3840x2160-10809.jpg"
+          src="/images/moscow-grey.jpg"
           alt="OK Pro — фон"
           fill
           priority
