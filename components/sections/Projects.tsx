@@ -82,7 +82,7 @@ function ProjectCard({
       viewport={{ once: true }}
       transition={{ duration: 0.55, delay: index * 0.1 }}
       className={`relative overflow-hidden rounded-2xl border border-white/10 group ${
-        large ? "h-[420px] md:h-[500px]" : "h-[340px] md:h-[380px]"
+        large ? "h-[420px] md:h-[560px]" : "h-[340px] md:h-[420px]"
       }`}
     >
       {/* Фото — на весь блок */}
@@ -90,21 +90,24 @@ function ProjectCard({
         src={project.image}
         alt={project.name}
         fill
-        className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
-        sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 640px"
+        className={`object-cover transition-transform duration-700 group-hover:scale-105 ${
+          large ? "object-center md:object-[center_20%]" : "object-top"
+        }`}
+        sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 1280px"
       />
 
-      {/* Градиент: из нижнего левого угла (непрозрачный) → правый верх (прозрачный) */}
+      {/* Градиент: из нижнего левого угла → правый верх */}
       <div
         className="absolute inset-0"
         style={{
-          background:
-            "linear-gradient(to top right, rgba(15,10,9,1) 0%, rgba(15,10,9,0.85) 30%, rgba(15,10,9,0.3) 60%, transparent 100%)",
+          background: large
+            ? "linear-gradient(to top right, rgba(15,10,9,0.97) 0%, rgba(15,10,9,0.8) 25%, rgba(15,10,9,0.2) 55%, transparent 75%)"
+            : "linear-gradient(to top right, rgba(15,10,9,1) 0%, rgba(15,10,9,0.85) 30%, rgba(15,10,9,0.3) 60%, transparent 100%)",
         }}
       />
 
       {/* Текст — нижний левый угол */}
-      <div className="absolute bottom-0 left-0 p-6 md:p-8 z-10 max-w-[70%]">
+      <div className={`absolute bottom-0 left-0 p-6 md:p-10 z-10 ${large ? "max-w-[55%] md:max-w-[50%]" : "max-w-[75%]"}`}>
         <p className="text-xs uppercase tracking-widest text-white/45 mb-2">
           <span className="text-accent mr-2">{project.num}</span>
           {project.category}
