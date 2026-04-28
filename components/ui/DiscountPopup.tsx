@@ -17,7 +17,7 @@ const COOLDOWN_MS = 7 * 24 * 60 * 60 * 1000;
 const schema = z.object({
   name: z.string().min(2, "Введите имя"),
   phone: z.string().min(7, "Введите телефон"),
-  consent: z.literal(true, { errorMap: () => ({ message: "Необходимо согласие" }) }),
+  consent: z.literal(true, "Необходимо согласие"),
 });
 type FormData = z.infer<typeof schema>;
 
