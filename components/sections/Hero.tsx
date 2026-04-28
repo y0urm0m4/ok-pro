@@ -27,6 +27,7 @@ export function Hero() {
           alt="OK Pro — фон"
           fill
           priority
+          fetchPriority="high"
           className="object-cover object-center scale-110 blur-md"
           sizes="100vw"
           onLoad={() => setLoaded(true)}

@@ -120,10 +120,11 @@ export function LeadForm() {
 
       {/* Услуга */}
       <div className="flex flex-col gap-1.5">
-        <label className="text-sm font-medium text-text">
+        <label htmlFor="service" className="text-sm font-medium text-text">
           Что вас интересует
         </label>
         <select
+          id="service"
           {...register("service")}
           className={cn(
             "w-full rounded-xl border border-border bg-surface px-4 py-3 text-text text-sm transition-colors duration-200",
