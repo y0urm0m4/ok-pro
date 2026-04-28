@@ -5,7 +5,7 @@ export const CONTACTS = {
   instagram: "https://instagram.com/okpro", // TODO: реальный аккаунт
 };
 
-export const SITE_NAME = "OK Pro";
+export const SITE_NAME = "Ок Про Продакшн";
 export const SITE_DESCRIPTION =
   "Личный бренд, PR, beauty-преображение, видеопродакшн. Комплексное сопровождение экспертов и медийных личностей.";
 export const SITE_URL = "https://okpro.ru"; // TODO: реальный домен

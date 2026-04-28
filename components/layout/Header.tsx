@@ -43,7 +43,8 @@ export function Header() {
             isTransparent ? "text-white" : "text-text"
           )}
         >
-          OK Pro
+          <span className="font-display">Ок Про</span>
+          <span className="font-sans text-xs font-normal tracking-widest uppercase opacity-60 ml-1.5">Продакшн</span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-6">

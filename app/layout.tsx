@@ -11,7 +11,7 @@ const jsonLd = {
     {
       "@type": "Organization",
       "@id": `${SITE_URL}/#organization`,
-      name: "OK Pro",
+      name: "Ок Про Продакшн",
       url: SITE_URL,
       logo: `${SITE_URL}/images/olesya.jpg`,
       email: "info@okpro.ru",
