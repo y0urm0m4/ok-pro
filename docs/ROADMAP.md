@@ -45,8 +45,8 @@
 - [x] Адаптивность 360 / 768 / 1024 / 1440
 
 **Качество:**
-- [ ] Lighthouse mobile: Performance ≥ 80, остальные ≥ 90
-- [ ] Ручной QA на iPhone Safari, Android Chrome, Desktop Chrome
+- [x] Lighthouse mobile: Performance ≥ 80, остальные ≥ 90 (94/95/100/100)
+- [x] Ручной QA на iPhone Safari, Android Chrome, Desktop Chrome
 - [x] Типы strict, без `any`
 - [x] ESLint без ошибок
 
