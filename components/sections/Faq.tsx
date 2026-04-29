@@ -39,9 +39,9 @@ export function Faq() {
     <section id="faq" className="py-24 md:py-32 bg-bg">
       <Container>
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6 }}
           className="mb-14"
         >
@@ -59,9 +59,9 @@ export function Faq() {
             return (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.4, delay: i * 0.06 }}
               >
                 <button

@@ -16,11 +16,10 @@ export function About() {
     <section id="about" className="py-24 md:py-32 bg-surface">
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Фото-заглушка */}
           <motion.div
-            initial={{ opacity: 0, x: -24 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6 }}
             className="relative w-full max-w-sm mx-auto lg:mx-0 rounded-2xl overflow-hidden shadow-lg"
           >
@@ -38,11 +37,10 @@ export function About() {
             </div>
           </motion.div>
 
-          {/* Текст */}
           <motion.div
-            initial={{ opacity: 0, x: 24 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             <p className="text-sm uppercase tracking-widest text-accent font-sans mb-4">
@@ -72,7 +70,6 @@ export function About() {
               </p>
             </div>
 
-            {/* Цифры */}
             <div className="grid grid-cols-3 gap-6 pt-8 border-t border-border">
               {stats.map((stat) => (
                 <div key={stat.label}>
