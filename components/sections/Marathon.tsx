@@ -23,9 +23,9 @@ export function Marathon() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           {/* Левая колонка — текст */}
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6 }}
           >
             <p className="text-sm uppercase tracking-widest text-accent font-sans mb-4">
@@ -68,9 +68,9 @@ export function Marathon() {
 
           {/* Правая колонка — что входит */}
           <motion.div
-            initial={{ opacity: 0, x: 24 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, delay: 0.15 }}
             className="bg-surface/5 rounded-2xl p-8 border border-surface/10"
           >
@@ -83,9 +83,9 @@ export function Marathon() {
                 return (
                   <motion.li
                     key={i}
-                    initial={{ opacity: 0, x: 12 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true, amount: 0.2 }}
                     transition={{ duration: 0.4, delay: 0.2 + i * 0.07 }}
                     className={`flex items-start gap-3 ${isSpecial ? "mt-6 pt-6 border-t border-accent/20" : ""}`}
                   >

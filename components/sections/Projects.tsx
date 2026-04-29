@@ -34,9 +34,9 @@ export function Projects() {
     <section id="projects" className="py-24 md:py-32 bg-text overflow-hidden">
       <Container>
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6 }}
           className="mb-14"
         >
@@ -77,9 +77,9 @@ function ProjectCard({
 }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 32 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.55, delay: index * 0.1 }}
       className={`relative overflow-hidden rounded-2xl border border-white/10 group ${
         large ? "h-[420px] md:h-[560px]" : "h-[340px] md:h-[420px]"

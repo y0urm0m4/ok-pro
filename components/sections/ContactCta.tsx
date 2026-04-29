@@ -26,9 +26,9 @@ export function ContactCta() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           {/* Левая колонка */}
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6 }}
           >
             <p className="text-sm uppercase tracking-widest text-white/60 font-sans mb-4">
@@ -85,9 +85,9 @@ export function ContactCta() {
 
           {/* Правая колонка — стеклянная форма */}
           <motion.div
-            initial={{ opacity: 0, x: 24 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, delay: 0.15 }}
             className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 shadow-xl"
           >
