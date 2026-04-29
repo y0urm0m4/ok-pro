@@ -101,13 +101,13 @@ function ProjectCard({
         className="absolute inset-0"
         style={{
           background: large
-            ? "linear-gradient(to top right, rgba(15,10,9,0.97) 0%, rgba(15,10,9,0.8) 25%, rgba(15,10,9,0.2) 55%, transparent 75%)"
+            ? "linear-gradient(to top, rgba(15,10,9,0.98) 0%, rgba(15,10,9,0.85) 35%, rgba(15,10,9,0.3) 65%, transparent 100%), linear-gradient(to right, rgba(15,10,9,0.6) 0%, transparent 60%)"
             : "linear-gradient(to top right, rgba(15,10,9,1) 0%, rgba(15,10,9,0.85) 30%, rgba(15,10,9,0.3) 60%, transparent 100%)",
         }}
       />
 
       {/* Текст — нижний левый угол */}
-      <div className={`absolute bottom-0 left-0 p-6 md:p-10 z-10 ${large ? "max-w-[55%] md:max-w-[50%]" : "max-w-[75%]"}`}>
+      <div className={`absolute bottom-0 left-0 p-6 md:p-10 z-10 ${large ? "w-full md:max-w-[50%]" : "max-w-[75%]"}`}>
         <p className="text-xs uppercase tracking-widest text-white/45 mb-2">
           <span className="text-accent mr-2">{project.num}</span>
           {project.category}
