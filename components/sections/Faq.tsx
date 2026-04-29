@@ -53,7 +53,7 @@ export function Faq() {
           </Heading>
         </motion.div>
 
-        <div className="max-w-3xl divide-y divide-border">
+        <div className="divide-y divide-border">
           {faqs.map((faq, i) => {
             const isOpen = open === i;
             return (
