@@ -103,9 +103,12 @@ export function Marathon() {
               })}
             </ul>
 
-            <div className="mt-8 pt-6 border-t border-surface/10">
+            <div className="mt-8 pt-6 border-t border-surface/10 flex flex-col gap-2">
               <p className="text-sm text-surface/40">
                 Формат — индивидуальный, рядом с вами в течение всего марафона
+              </p>
+              <p className="text-xs text-surface/30 leading-relaxed">
+                Программа не является медицинской услугой. Перед началом проконсультируйтесь со специалистом.
               </p>
             </div>
           </motion.div>
