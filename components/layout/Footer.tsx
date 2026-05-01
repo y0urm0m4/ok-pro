@@ -70,7 +70,8 @@ export function Footer() {
         </div>
 
         <div className="border-t border-surface/10 pt-6 flex flex-col gap-3">
-          <p className="text-sm text-surface/40">© 2026 ИП Константинова О.О. Все права защищены.</p>
+          <p className="text-sm text-surface/40">© 2026 ИП Константинова Олеся Олеговна. Все права защищены.</p>
+          <p className="text-xs text-surface/30">ОГРНИП: 000000000000000 · ИНН: 000000000000</p>
           <p className="text-xs text-surface/30 leading-relaxed">
             * Мессенджер Telegram не является экстремистской организацией и не запрещён на территории РФ.
           </p>
