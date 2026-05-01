@@ -64,9 +64,9 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.5 }}
           >
             <Heading level={1} className="text-white mb-6 drop-shadow-lg">
-              Личный бренд,{" "}
+              Ваш рост — наша работа.{" "}
               <em className="font-display not-italic text-white">
-                который замечают
+                Ваш результат — наша репутация.
               </em>
             </Heading>
           </motion.div>
