@@ -42,7 +42,7 @@ export function Footer() {
               rel="noopener noreferrer"
               className="text-sm text-surface/60 hover:text-surface transition-colors duration-200"
             >
-              Telegram*
+              Telegram
             </a>
             <a
               href={CONTACTS.whatsapp}
@@ -50,7 +50,7 @@ export function Footer() {
               rel="noopener noreferrer"
               className="text-sm text-surface/60 hover:text-surface transition-colors duration-200"
             >
-              WhatsApp
+              WhatsApp*
             </a>
             <a
               href={CONTACTS.instagram}
@@ -58,7 +58,7 @@ export function Footer() {
               rel="noopener noreferrer"
               className="text-sm text-surface/60 hover:text-surface transition-colors duration-200"
             >
-              Instagram**
+              Instagram*
             </a>
             <a
               href={`mailto:${CONTACTS.email}`}
@@ -73,10 +73,7 @@ export function Footer() {
           <p className="text-sm text-surface/40">© 2026 ИП Константинова Олеся Олеговна. Все права защищены.</p>
           <p className="text-xs text-surface/30">ОГРНИП: 000000000000000 · ИНН: 000000000000</p>
           <p className="text-xs text-surface/30 leading-relaxed">
-            * Мессенджер Telegram не является экстремистской организацией и не запрещён на территории РФ.
-          </p>
-          <p className="text-xs text-surface/30 leading-relaxed">
-            ** Instagram — социальная сеть, принадлежащая Meta Platforms Inc., признанной экстремистской организацией и запрещённой на территории Российской Федерации. Ссылка размещена исключительно в информационных целях.
+            * Instagram и WhatsApp — сервисы компании Meta Platforms Inc., признанной экстремистской организацией и запрещённой на территории Российской Федерации. Ссылки размещены исключительно в информационных целях.
           </p>
         </div>
       </Container>
