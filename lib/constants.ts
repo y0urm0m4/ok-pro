@@ -1,8 +1,8 @@
 export const CONTACTS = {
-  telegram: "https://t.me/okpro", // TODO: реальный username
-  whatsapp: "https://wa.me/7", // TODO: реальный номер
-  email: "info@okpro.ru", // TODO: реальный email
-  instagram: "https://instagram.com/okpro", // TODO: реальный аккаунт
+  telegram: "https://t.me/Ekaterina0755",
+  whatsapp: "https://wa.me/79110246608",
+  email: "Lesyakonstanti@gmail.com",
+  instagram: "https://www.instagram.com/lesyakonstanta/",
 };
 
 export const SITE_NAME = "Ок Про Продакшн";
