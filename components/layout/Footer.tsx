@@ -36,42 +36,47 @@ export function Footer() {
           </nav>
 
           <div className="flex flex-col gap-2">
-            {CONTACTS.telegram && (
-              <a
-                href={CONTACTS.telegram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-surface/60 hover:text-surface transition-colors duration-200"
-              >
-                Telegram
-              </a>
-            )}
-            {CONTACTS.whatsapp && (
-              <a
-                href={CONTACTS.whatsapp}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-surface/60 hover:text-surface transition-colors duration-200"
-              >
-                WhatsApp
-              </a>
-            )}
-            {CONTACTS.instagram && (
-              <a
-                href={CONTACTS.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-surface/60 hover:text-surface transition-colors duration-200"
-              >
-                Instagram
-              </a>
-            )}
+            <a
+              href={CONTACTS.telegram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-surface/60 hover:text-surface transition-colors duration-200"
+            >
+              Telegram*
+            </a>
+            <a
+              href={CONTACTS.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-surface/60 hover:text-surface transition-colors duration-200"
+            >
+              WhatsApp
+            </a>
+            <a
+              href={CONTACTS.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-surface/60 hover:text-surface transition-colors duration-200"
+            >
+              Instagram**
+            </a>
+            <a
+              href={`mailto:${CONTACTS.email}`}
+              className="text-sm text-surface/60 hover:text-surface transition-colors duration-200"
+            >
+              {CONTACTS.email}
+            </a>
           </div>
         </div>
 
-        <div className="border-t border-surface/10 pt-6 text-sm text-surface/40">
-          <p>© 2026 ИП Константинова О.О. Все права защищены.</p>
-          {/* TODO: добавить реквизиты ИП */}
+        <div className="border-t border-surface/10 pt-6 flex flex-col gap-3">
+          <p className="text-sm text-surface/40">© 2026 ИП Константинова О.О. Все права защищены.</p>
+          <p className="text-xs text-surface/30 leading-relaxed">
+            * Мессенджер Telegram не является экстремистской организацией и не запрещён на территории РФ.
+          </p>
+          <p className="text-xs text-surface/30 leading-relaxed">
+            ** Instagram — социальная сеть, принадлежащая Meta Platforms Inc., признанной экстремистской организацией и запрещённой на территории Российской Федерации. Ссылка размещена исключительно в информационных целях.
+          </p>
         </div>
       </Container>
     </footer>
