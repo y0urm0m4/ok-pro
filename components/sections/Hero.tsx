@@ -55,7 +55,7 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="text-sm uppercase tracking-widest text-white font-sans mb-6"
           >
-            Продюсерский центрр
+            Продюсерский центр
           </motion.p>
 
           <motion.div
