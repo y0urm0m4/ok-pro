@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { leadSchema } from "@/lib/schemas";
 import { SocksProxyAgent } from "socks-proxy-agent";
-import https from "https";
 
 // In-memory rate-limit: не более 5 заявок в час с одного IP
 const rateMap = new Map<string, { count: number; resetAt: number }>();
