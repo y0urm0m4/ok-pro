@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { leadSchema } from "@/lib/schemas";
+import { SocksProxyAgent } from "socks-proxy-agent";
+import https from "https";
 
 // In-memory rate-limit: не более 5 заявок в час с одного IP
 const rateMap = new Map<string, { count: number; resetAt: number }>();
@@ -74,18 +76,20 @@ export async function POST(req: NextRequest) {
     .filter(Boolean)
     .join("\n");
 
+  const proxyUrl = process.env.SOCKS5_PROXY;
+  const fetchOptions: RequestInit & { agent?: unknown } = {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ chat_id: chatId, text, parse_mode: "Markdown" }),
+  };
+  if (proxyUrl) {
+    fetchOptions.agent = new SocksProxyAgent(proxyUrl);
+  }
+
   try {
     const res = await fetch(
       `https://api.telegram.org/bot${botToken}/sendMessage`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          chat_id: chatId,
-          text,
-          parse_mode: "Markdown",
-        }),
-      }
+      fetchOptions as RequestInit
     );
 
     if (!res.ok) {
