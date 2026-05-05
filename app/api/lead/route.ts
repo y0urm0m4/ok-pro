@@ -100,7 +100,7 @@ async function sendViaTelegram(
     text,
     parse_mode: "Markdown",
   });
-  const proxyUrl = process.env.HTTPS_PROXY;
+  const proxyUrl = process.env.TELEGRAM_PROXY;
   const path = `/bot${botToken}/sendMessage`;
 
   if (!proxyUrl) {
