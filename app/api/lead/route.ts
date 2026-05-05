@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { leadSchema } from "@/lib/schemas";
-import { ProxyAgent, fetch as undiciFetch } from "undici";
+
+export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
 
 // In-memory rate-limit: не более 5 заявок в час с одного IP
 const rateMap = new Map<string, { count: number; resetAt: number }>();
@@ -76,6 +78,7 @@ export async function POST(req: NextRequest) {
     .join("\n");
 
   const proxyUrl = process.env.HTTPS_PROXY;
+  const { ProxyAgent, fetch: undiciFetch } = await import("undici");
   const dispatcher = proxyUrl ? new ProxyAgent(proxyUrl) : undefined;
 
   try {
