@@ -77,30 +77,94 @@ export async function POST(req: NextRequest) {
     .filter(Boolean)
     .join("\n");
 
-  const proxyUrl = process.env.HTTPS_PROXY;
-  const { ProxyAgent, fetch: undiciFetch } = await import("undici");
-  const dispatcher = proxyUrl ? new ProxyAgent(proxyUrl) : undefined;
-
   try {
-    const res = await undiciFetch(
-      `https://api.telegram.org/bot${botToken}/sendMessage`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ chat_id: chatId, text, parse_mode: "Markdown" }),
-        dispatcher,
-      }
-    );
-
-    if (!res.ok) {
-      const err = await res.text();
-      console.error("Telegram error:", err);
+    const ok = await sendViaTelegram(botToken, chatId, text);
+    if (!ok) {
       return NextResponse.json({ error: "Telegram error" }, { status: 500 });
     }
   } catch (err) {
-    console.error("Telegram fetch error:", err);
+    console.error("Telegram send error:", err);
     return NextResponse.json({ error: "Network error" }, { status: 500 });
   }
 
   return NextResponse.json({ ok: true });
+}
+
+async function sendViaTelegram(
+  botToken: string,
+  chatId: string,
+  text: string
+): Promise<boolean> {
+  const payload = JSON.stringify({
+    chat_id: chatId,
+    text,
+    parse_mode: "Markdown",
+  });
+  const proxyUrl = process.env.HTTPS_PROXY;
+  const path = `/bot${botToken}/sendMessage`;
+
+  if (!proxyUrl) {
+    const res = await fetch(`https://api.telegram.org${path}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: payload,
+    });
+    return res.ok;
+  }
+
+  return new Promise<boolean>((resolve, reject) => {
+    (async () => {
+      try {
+        const http = await import("http");
+        const tls = await import("tls");
+        const proxy = new URL(proxyUrl);
+        const auth = Buffer.from(
+          `${decodeURIComponent(proxy.username)}:${decodeURIComponent(proxy.password)}`
+        ).toString("base64");
+
+        const connectReq = http.request({
+          host: proxy.hostname,
+          port: parseInt(proxy.port || "8080", 10),
+          method: "CONNECT",
+          path: "api.telegram.org:443",
+          headers: { "Proxy-Authorization": `Basic ${auth}` },
+        });
+
+        connectReq.on("connect", (res, socket) => {
+          if (res.statusCode !== 200) {
+            socket.destroy();
+            return resolve(false);
+          }
+          const tlsSocket = tls.connect({
+            socket,
+            servername: "api.telegram.org",
+          });
+          tlsSocket.once("secureConnect", () => {
+            const req =
+              `POST ${path} HTTP/1.1\r\n` +
+              `Host: api.telegram.org\r\n` +
+              `Content-Type: application/json\r\n` +
+              `Content-Length: ${Buffer.byteLength(payload)}\r\n` +
+              `Connection: close\r\n\r\n` +
+              payload;
+            tlsSocket.write(req);
+          });
+          let raw = "";
+          tlsSocket.on("data", (chunk) => {
+            raw += chunk.toString();
+          });
+          tlsSocket.on("end", () => {
+            const ok = /^HTTP\/1\.1 200/.test(raw);
+            resolve(ok);
+          });
+          tlsSocket.on("error", reject);
+        });
+
+        connectReq.on("error", reject);
+        connectReq.end();
+      } catch (err) {
+        reject(err);
+      }
+    })();
+  });
 }
